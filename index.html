@@ -87,7 +87,7 @@ table{
           <td><input type="button" class="button" value="3" onclick="inserirnumero(3)" /></td>
           <td rowspan="5"><input type="button" style="height:106px;" class="button yl" value="=" onclick="equal()" /></td>
           <!-- <td><input type="button" class="button" value="√" onclick="inserirnumero('**')" /></td> -->
-          <td><input type="button" class="button" value="!" onclick="inserirnumero('!')" /></td>
+          <td><input type="button" class="button" value="!" onclick="fatorial()" /></td>
         </tr>
         <tr> 
           <td colspan="2"><input  type="button" style="width:96%" class="button" value="0" onclick="inserirnumero(0)" /></td>
@@ -113,16 +113,16 @@ table{
           document.form.display.value = eval(exp);
         }
       }
-//       function fatorial(){
-//   var numero = parseInt(document.getElementById('numero').value);
-//   var resposta = document.getElementById('resposta');
-//   var resultado=1;
-
-//   for(var count=1 ; count<=numero ; count++)
-//    resultado *= count;
-
-//   resposta.innerHTML =resultado;
-// }
+function fatorial(){
+  var numero = document.form.display.value;
+        
+        var resultado = 1
+        for(var count=1 ; count<=numero ; count++){
+          resultado *= count;
+        }
+        document.form.display.value = resultado;
+        console.log(resultado);
+      }
 
     </script>
   </body>
