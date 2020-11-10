@@ -1,0 +1,129 @@
+<html>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .button{
+    width:50px;
+    height: 50px;
+    margin: 2px;
+    background-color: gray;
+    border: 1px solid rgb(0, 0, 0, 0.25);
+    color: white;
+    font-size: 18pt;
+    cursor: pointer;
+    transition: 100ms ease;
+  }
+
+  .button:hover{
+    opacity:50%;
+  }
+
+  .display{
+    width: 220px;
+    padding:10px;
+    margin-left: 3px;
+    font-size:18pt;
+  }
+
+  .main{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color:rgb(112, 112, 245);
+    width: 15rem;
+    text-align: center;
+    
+  }
+table{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+  .yl{
+    background-color: rgb(135, 135, 168);
+    transition: 100ms ease;
+  }
+  .backspace{
+    background-color: red;
+  }
+   
+</style>
+  <head>
+    <title>Calculadora</title>
+  </head>
+  <body>
+    
+    <div class="main"> 
+      <h1>Calculadora</h1>
+      <form name="form">
+        <input class="display" name="display">
+      </form>
+      <table>
+        <tr> 
+          <td><input type="button" class="button backspace" value="C" onclick="clean()" /></td>
+          <td><input type="button" class="button yl" value="<" onclick="backspace()" /></td>
+          <td><input type="button" class="button yl" value="/" onclick="inserirnumero('/')" /></td>
+          <td><input type="button" class="button yl" value="*" onclick="inserirnumero('*')" /></td>
+        </tr>
+        <tr> 
+          <td><input type="button" class="button" value="7" onclick="inserirnumero(7)" /></td>
+          <td><input type="button" class="button" value="8" onclick="inserirnumero(8)" /></td>
+          <td><input type="button" class="button" value="9" onclick="inserirnumero(9)" /></td>
+          <td><input type="button" class="button yl" value="-" onclick="inserirnumero('-')" /></td>
+        </tr>
+        <tr> 
+          <td><input type="button" class="button" value="4" onclick="inserirnumero(4)" /></td>
+          <td><input type="button" class="button" value="5" onclick="inserirnumero(5)" /></td>
+          <td><input type="button" class="button" value="6" onclick="inserirnumero(6)" /></td>
+          <td><input type="button" class="button yl" value="+" onclick="inserirnumero('+')" /></td>
+        </tr>
+        <tr> 
+          <td><input type="button" class="button" value="1" onclick="inserirnumero(1)" /></td>
+          <td><input type="button" class="button" value="2" onclick="inserirnumero(2)" /></td>
+          <td><input type="button" class="button" value="3" onclick="inserirnumero(3)" /></td>
+          <td rowspan="5"><input type="button" style="height:106px;" class="button yl" value="=" onclick="equal()" /></td>
+          <!-- <td><input type="button" class="button" value="√" onclick="inserirnumero('**')" /></td> -->
+          <td><input type="button" class="button" value="!" onclick="inserirnumero('!')" /></td>
+        </tr>
+        <tr> 
+          <td colspan="2"><input  type="button" style="width:96%" class="button" value="0" onclick="inserirnumero(0)" /></td>
+          <td><input type="button" class="button" value="." onclick="inserirnumero('.')" /></td>
+         
+        </tr>
+      </table>
+    </div>
+    <script>
+      function inserirnumero (num) {
+        document.form.display.value = document.form.display.value + num;
+      }
+      function backspace(){
+        var display = document.form.display.value;
+        document.form.display.value = display.substring(0, display.length - 1);
+      }
+      function clean(){
+        document.form.display.value = '';
+      }
+      function equal(){
+        var exp = document.form.display.value;
+        if(exp){
+          document.form.display.value = eval(exp);
+        }
+      }
+//       function fatorial(){
+//   var numero = parseInt(document.getElementById('numero').value);
+//   var resposta = document.getElementById('resposta');
+//   var resultado=1;
+
+//   for(var count=1 ; count<=numero ; count++)
+//    resultado *= count;
+
+//   resposta.innerHTML =resultado;
+// }
+
+    </script>
+  </body>
+</html>
