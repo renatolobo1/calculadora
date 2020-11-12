@@ -63,13 +63,13 @@ table{
 }
    
 </style>
-  <head>
-    <title id="demo">Calculadora</title>
-    
+  <head >
+    <title id="demo" ></title>
+    <meta charset="UTF-8"/>
   </head>
   <body>
-    <td><input type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
-    <td><input type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
+    <td><input id="sumir" type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
+   
     <div class="main"> 
       <h1>Calculadora</h1>
       <form name="form" >
@@ -104,11 +104,12 @@ table{
           <td><input type="button" class="button" value="1" onclick="inserirnumero(1)" /></td>
           <td><input type="button" class="button" value="2" onclick="inserirnumero(2)" /></td>
           <td><input type="button" class="button" value="3" onclick="inserirnumero(3)" /></td>
-          <td rowspan="5"><input type="button" style="height:106px;" class="button yl" value="=" onclick="igual()" /></td>
+          <td><input type="button" class="button yl" value="√" onclick="raizquadrada2()" /></td>
         </tr>
         <tr> 
           <td colspan="2"><input  type="button" style="width:96%" class="button" value="0" onclick="inserirnumero(0)" /></td>
-          <td><input type="button" class="button" value="." onclick="inserirnumero('.')" /></td>         
+          <td><input type="button" class="button" value="." onclick="inserirnumero('.')" /></td>  
+          <td ><input type="button"  class="button yl" value="=" onclick="igual()" /></td>       
         </tr>
       </table>
     </div>
@@ -150,8 +151,26 @@ table{
       }
       function darkthemer(){
         document.body.className = "darkthemer";
+        document.getElementById('sumir').style.display = 'none';
       }
-      
+      function raizquadrada(){
+        var display = document.form.display.value;
+        document.form.display.value = display**0.5;
+      }
+      function raizquadrada2(){
+        var m = document.form.display.value;
+        n = 0
+        i = 1
+        while (m >= i){
+            m = m - i;
+            i = i + 2;
+            n = n + 1;
+        }
+        document.form.display.value = n;
+      }
+
+
+     
 
     </script>
   </body>
