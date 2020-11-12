@@ -4,7 +4,9 @@
     margin: 0;
     padding: 0;
   }
-
+  body{
+    background-color:white;
+  }
   .button{
     width:50px;
     height: 50px;
@@ -50,24 +52,41 @@ table{
   .backspace{
     background-color: red;
   }
+  body.darkthemer
+{
+  background-color: black;
+}
+.darkthemer{
+  
+  text-align: center;
+  display: flex;
+}
    
 </style>
   <head>
-    <title>Calculadora</title>
+    <title id="demo">Calculadora</title>
+    
   </head>
   <body>
-    
+    <td><input type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
+    <td><input type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
     <div class="main"> 
       <h1>Calculadora</h1>
-      <form name="form">
-        <input class="display" name="display">
+      <form name="form" >
+        <input  class="display" name="display">
       </form>
       <table>
         <tr> 
-          <td><input type="button" class="button backspace" value="C" onclick="clean()" /></td>
-          <td><input type="button" class="button yl" value="<" onclick="backspace()" /></td>
+          <td><input type="button" class="button backspace" value="C" onclick="Limpar()" /></td>
+          <td><input type="button" class="button yl" value="<" onclick="limparAnterior()" /></td>
           <td><input type="button" class="button yl" value="/" onclick="inserirnumero('/')" /></td>
           <td><input type="button" class="button yl" value="*" onclick="inserirnumero('*')" /></td>
+        </tr>
+        <tr> 
+          <td><input type="button" class="button" value="!" onclick="fatorial()" /></td>
+          <td><input type="button" class="button" value="?" onclick="inserirnumero('**')" /></td>
+          <td><input type="button" class="button" value="CC" onclick="salvar()" /></td>
+          <td><input type="button" class="button" value="CV" onclick="colar()" /></td>
         </tr>
         <tr> 
           <td><input type="button" class="button" value="7" onclick="inserirnumero(7)" /></td>
@@ -85,36 +104,34 @@ table{
           <td><input type="button" class="button" value="1" onclick="inserirnumero(1)" /></td>
           <td><input type="button" class="button" value="2" onclick="inserirnumero(2)" /></td>
           <td><input type="button" class="button" value="3" onclick="inserirnumero(3)" /></td>
-          <td rowspan="5"><input type="button" style="height:106px;" class="button yl" value="=" onclick="equal()" /></td>
-          <!-- <td><input type="button" class="button" value="√" onclick="inserirnumero('**')" /></td> -->
-          <td><input type="button" class="button" value="!" onclick="fatorial()" /></td>
+          <td rowspan="5"><input type="button" style="height:106px;" class="button yl" value="=" onclick="igual()" /></td>
         </tr>
         <tr> 
           <td colspan="2"><input  type="button" style="width:96%" class="button" value="0" onclick="inserirnumero(0)" /></td>
-          <td><input type="button" class="button" value="." onclick="inserirnumero('.')" /></td>
-         
+          <td><input type="button" class="button" value="." onclick="inserirnumero('.')" /></td>         
         </tr>
       </table>
     </div>
     <script>
+     
       function inserirnumero (num) {
         document.form.display.value = document.form.display.value + num;
       }
-      function backspace(){
+      function limparAnterior(){
         var display = document.form.display.value;
         document.form.display.value = display.substring(0, display.length - 1);
       }
-      function clean(){
+      function Limpar(){
         document.form.display.value = '';
       }
-      function equal(){
+      function igual(){
         var exp = document.form.display.value;
         if(exp){
           document.form.display.value = eval(exp);
         }
       }
-function fatorial(){
-  var numero = document.form.display.value;
+      function fatorial(){
+        var numero = document.form.display.value;
         
         var resultado = 1
         for(var count=1 ; count<=numero ; count++){
@@ -123,6 +140,18 @@ function fatorial(){
         document.form.display.value = resultado;
         console.log(resultado);
       }
+      function salvar() {
+        var x = document.form.display.value;
+        document.getElementById("demo").innerHTML = x;
+      }
+
+      function colar(){
+        value=document.form.display.value += document.getElementById("demo").innerHTML;
+      }
+      function darkthemer(){
+        document.body.className = "darkthemer";
+      }
+      
 
     </script>
   </body>
