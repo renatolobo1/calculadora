@@ -45,22 +45,18 @@
   .backspace{
     background-color: red;
   }
-  body.darkthemer{
+  body.darkmode{
     background-color: black;
   }
-  .darkthemer{
-    text-align: center;
-    display: flex;
-  }
-   
+    
 </style>
   <head >
     <title id="demo" ></title>
     <meta charset="UTF-8"/>
   </head>
   <body>
-    <td><input id="sumir" type="button" class="darkthemer" value="Dark Themer" onclick="darkthemer()" /> </td>
-   
+    <td><input id="dt" type="button" class="darkmode" value="Dark Mode"  onclick="darkmode()" /> </td>
+    <td><input id="lt" type="button" class="lightmode" value="Light Mode" style="display:none" onclick="lightmode()" /> </td>
     <div class="main"> 
       <h1>Calculadora</h1>
       <form name="form" >
@@ -140,9 +136,15 @@
       function colar(){
         value=document.form.display.value += document.getElementById("demo").innerHTML;
       }
-      function darkthemer(){
-        document.body.className = "darkthemer";
-        document.getElementById('sumir').style.display = 'none';
+      function darkmode(){
+        document.body.className = "darkmode";
+        document.getElementById('dt').style.display = 'none';
+        document.getElementById('lt').style.display = 'block';
+      }
+      function lightmode(){
+        document.body.className = "lightmode";
+        document.getElementById('lt').style.display = 'none';
+        document.getElementById('dt').style.display = 'block';
       }
       function raizquadrada(){
         var display = document.form.display.value;
